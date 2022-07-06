@@ -1,0 +1,8 @@
+# Dossier back-end à ignorer
+back-end/node_modules
+back-end/images
+back-end/images/profile
+back-end/images/quote
+
+# Dossiers front-end à ignorer
+front-end/node_modules
