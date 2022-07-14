@@ -18,12 +18,25 @@ exports.getUserThread = (req, res, next) => {
                 .catch((error) => res.status(500).json({error}));
                 })
         .catch();
-    }    
+    }
 
 exports.getProfile = (req, res, next) => {
-    Profile.findOne({userId: req.body.userId})
+    Profile.findOne({userId: req.params.id})
         .then(profile => res.status(200).json(profile))
         .catch(error => res.status(500).json({error}));
+}
+
+exports.createProfile = (req, res, next) => {
+    const profile = new Profile ({
+        ...JSON.parse(req.body.profile),
+        pictureProfile: `${req.protocole}://${req.get('host')}/images/profile/${req.file.filename}`,
+        completeName: firstName + ' ' + lastName,
+        myQuotes: [],
+        quoteslikes: {}
+    })
+    profile.save()
+        .then(() => res.status(201).json({message: 'Profile créé'}))
+        .catch((error) => res.status(400).json({error}));
 }
 
 exports.updateProfile = (req, res, next) => {

@@ -4,14 +4,17 @@ const jwt = require('jsonwebtoken');
 
 /*Middleware POST création de compte utilisateur*/
 exports.signup = (req, res, next) => {
-    const account = new Account ({
-        email: req.body.email,
-        password: req.body.password,
-        administrator: false
-    });
+    bcrypt.hash(req.body.password, 10)
+    .then(hash => {
+        const account = new Account ({
+            email: req.body.email,
+            password: hash,
+            administrator: false
+        });
         account.save()
             .then(() => res.status(201).json({message: 'compte enregistré'}))
             .catch(error => res.status(400).json({error}));
+    })       
     }
 
 /*Middleware POST de login utilisateur*/

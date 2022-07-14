@@ -9,7 +9,7 @@ const userInfoSchema = mongoose.Schema({
     pictureProfile: {type: String, require: true},
     job: {type: String, require: true},
     myQuotes: {type: Array, of: String, require: true},
-    quotesLikes: {type: Array, of: String, require: true}
+    quotesLikes: {type: Map, require: true}
 });
 
 userInfoSchema.plugin(uniqueValidator);
