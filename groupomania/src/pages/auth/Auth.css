@@ -1,0 +1,40 @@
+.authPage__logo {
+    position: relative;
+    right: 2.5%;
+    object-fit: cover;
+    max-height: 40%;
+    display: block;
+    margin: auto;
+}
+
+span {
+    display: inline-block;
+    margin-left: 12%;
+    padding: 20px;
+    background-color: #FFD7D7;
+    border-radius: 200px;
+    margin-bottom: 50px;
+}
+
+#log {
+    background-color: #FD2D01;
+    color: white;
+}
+
+.form {
+    margin: auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.button {
+    border-style: none;
+    background-color: #4e5166;
+    color: white;
+    border-radius: 200px;
+    padding: 20px;
+    margin-left: 35%;
+    margin-top: 10%;
+}

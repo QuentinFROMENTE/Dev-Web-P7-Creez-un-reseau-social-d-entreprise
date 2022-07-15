@@ -1,5 +1,5 @@
-import "./AuthPage.css";
-import logo from "../../assets/icon-left-font.svg";
+import "./Auth.css";
+import logo from "../../assets/logos/icon-left-font.svg";
 import {useState} from 'react';
 
 function AuthPage () {
@@ -48,40 +48,40 @@ function AuthPage () {
     
     return isLogin ? (
         <div>
-            <img src={logo} alt="Logo Groupomania" className="bannerAuthPage"/>
+            <img src={logo} alt="Logo Groupomania" className="authPage__logo"/>
             <span onClick={() => setIsLogin(false)}>S'enregistrer</span>
-            <span onClick={() => setIsLogin(true)}>Se Connecter</span>
+            <span id="log" onClick={() => setIsLogin(true)}>Se Connecter</span>
             <form method="post">
-            <div>
+            <div className="form">
                 <label for="email">Email</label>
                 <input id="email" type="email"/>
             </div>
-            <div>
+            <div className="form">
                 <label for="password" type="password">Mot de passe</label>
                 <input id="password" type="password"/>
             </div>
-            <input type="button" value="Se Connecter" onClick={logIn}/>
+            <input className="button" type="button" value="Se Connecter" onClick={logIn}/>
         </form>
         </div>
         ) : (
             <div>
-                <img src={logo} alt="Logo Groupomania" className="bannerAuthPage"/>
-            <span onClick={() => setIsLogin(false)}>S'enregistrer</span>
+                <img src={logo} alt="Logo Groupomania" className="authPage__logo"/>
+            <span id="log" onClick={() => setIsLogin(false)}>S'enregistrer</span>
             <span onClick={() => setIsLogin(true)}>Se Connecter</span>
             <form method="post">
-            <div>
+            <div className="form">
                 <label for="email">Email</label>
                 <input id="email" type="email"/>
             </div>
-            <div>
+            <div className="form">
                 <label for="password" type="password">Mot de passe</label>
                 <input id="password" type="password"/>
             </div>
-            <div id="secondPassword">
+            <div id="secondPassword"  className="form">
                 <label for="passwordSecurity" type="password">Confirmation Mot de passe</label>
                 <input id="passwordSecurity" type="password"/>
             </div>
-            <input type="button" value="S'enregistrer" onClick={signUp}/>
+            <input className="button" type="button" value="S'enregistrer" onClick={signUp}/>
         </form>
         </div>
         )

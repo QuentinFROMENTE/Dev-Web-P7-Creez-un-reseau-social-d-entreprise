@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/police/Lato-Regular.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: "Lato";
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
