@@ -1,9 +1,8 @@
 const Profile = require('../models/userInfo');
 const Quote = require('../models/quote');
-const fs = require('fs');
 
 exports.getUserThread = (req, res, next) => {
-    Profile.findOne({_id: req.body.userId})
+    Profile.findOne({userId: req.body.userId})
         .then(profile => {
             let arrayOfQuote = profile.myQuotes;
             arrayOfQuote.push.apply(profile.quoteslikes);
@@ -27,33 +26,20 @@ exports.getProfile = (req, res, next) => {
 }
 
 exports.createProfile = (req, res, next) => {
+    const quotesLikes = new Map();
     const profile = new Profile ({
-        ...JSON.parse(req.body.profile),
-        pictureProfile: `${req.protocole}://${req.get('host')}/images/profile/${req.file.filename}`,
-        completeName: firstName + ' ' + lastName,
+        ...req.body,
+        completeName: req.body.firstName + ' ' + req.body.lastName,
         myQuotes: [],
-        quoteslikes: {}
+        quotesLikes: quotesLikes
     })
     profile.save()
-        .then(() => res.status(201).json({message: 'Profile créé'}))
+        .then(() => res.status(201).json({message: "Profile créé"}))
         .catch((error) => res.status(400).json({error}));
-}
+    }
 
 exports.updateProfile = (req, res, next) => {
-    if(req.file) {
-        Profile.findOne({_id: req.body.userId})
-            .then((previousImage) => {
-                const update = JSON.parse(req.body.profile);
-                const filename = previousImage.imageUrl.split('/images/profile/')[1];
-                fs.unlink(`images/images/${filename}`, () => {
-                    Profile.updateOne({_id: req.body.userId}, {...update, _id: req.body.userId})
-                        .then(() => {res.status(201).json({message: 'Mise à jour réussi'})})
-                        .catch(error => res.status(400).json({error}));
-                })
-            })
-            .catch(error => res.status(400).json({error}));
-    }
-    Profile.findOneAndUpdate({_id: req.body.userId}, {...req.body.profile, _id: req.body.userId})
+    Profile.findOneAndUpdate({userId: req.body.userId}, {...req.body, userId: req.body.userId})
         .then(() => res.status(200).json({mesage: 'Mise à jours réussi'}))
         .catch(error => res.status(400).json({error}));
 }

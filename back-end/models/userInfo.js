@@ -6,7 +6,7 @@ const userInfoSchema = mongoose.Schema({
     completeName: {type: String, require: true, unique: true},
     firstName: {type: String, require: true},
     lastName: {type: String, require: true},
-    pictureProfile: {type: String, require: true},
+    pictureProfile: {type: String},
     job: {type: String, require: true},
     myQuotes: {type: Array, of: String, require: true},
     quotesLikes: {type: Map, require: true}

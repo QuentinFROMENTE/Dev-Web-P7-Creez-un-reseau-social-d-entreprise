@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const quoteCtrl = require('../controllers/quote');
 const auth = require('../middlewares/auth');
-const multer = require('../middlewares/multer-config');
+const multer = require('../middlewares/multer-quote');
 
 router.get('/', auth, quoteCtrl.getAll);
 router.post('/', auth, multer, quoteCtrl.createNewQuote);

@@ -17,6 +17,8 @@ mongoose.connect(
     .then(() => console.log('Connection à MongoDB réussi'))
     .catch(() => console.log('Connexion à MongoDB échoué'));
     
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 app.use(express.json());
 
 /*Middleware de gestion CORS*/

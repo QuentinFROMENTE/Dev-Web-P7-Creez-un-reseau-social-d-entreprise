@@ -1,0 +1,54 @@
+.profile__localisation {
+    margin-left: 25%;
+}
+
+.profile__form {
+    margin: auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.profile__form--picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile__picture {
+    margin-top: 20px;
+    object-fit: cover;
+    width: 80%;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.profile__button {
+    margin-left: 27%;
+}
+
+@media (min-width: 480px) and (max-width: 900px) {
+    .profile__localisation {
+        margin-left: 37%;
+    }
+    .profile__button {
+        margin-left: 38%;
+    }
+}
+
+@media (min-width: 901px) {
+    .profile__localisation {
+        margin-left: 43%;
+    }
+    .profile__form {
+        width: 40%;
+    }
+    .profile__picture {
+        width: 35%;
+    }
+    .profile__button {
+        margin-left: 43.8%;
+    }
+}

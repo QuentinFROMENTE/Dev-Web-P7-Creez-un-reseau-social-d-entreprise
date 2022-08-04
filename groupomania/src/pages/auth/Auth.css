@@ -7,34 +7,56 @@
     margin: auto;
 }
 
-span {
-    display: inline-block;
-    margin-left: 12%;
-    padding: 20px;
-    background-color: #FFD7D7;
-    border-radius: 200px;
-    margin-bottom: 50px;
-}
-
-#log {
-    background-color: #FD2D01;
-    color: white;
-}
-
-.form {
+.authPage__form {
     margin: auto;
     display: flex;
     width: 80%;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.button {
-    border-style: none;
-    background-color: #4e5166;
-    color: white;
-    border-radius: 200px;
-    padding: 20px;
+.authPage__form--bottom {
+    margin-bottom: 50px;
+}
+
+.authPage__button--left {
+    margin-left: 10%;
+}
+
+.authPage__button--right {
+    margin-left: 20%;
+}
+
+.authPage__button--validation {
     margin-left: 35%;
-    margin-top: 10%;
+}
+
+@media (min-width: 480px) and (max-width: 900px) {
+    .authPage__logo {
+        max-height: 500px;
+    }
+    .authPage__button--left {
+        margin-left: 24%;
+    }    
+    .authPage__button--validation {
+        margin-left: 43.5%;
+    }
+}
+
+@media (min-width: 901px) {
+    .authPage__logo {
+        max-height: 350px;
+    }
+    .authPage__button--left {
+        margin-left: 35%;
+    }    
+    .authPage__button--right{
+        margin-left: 15%;
+    }
+    .authPage__button--validation {
+        margin-left: 46%;
+    }
+    .authPage__form {
+        width: 40%;
+    }
 }
