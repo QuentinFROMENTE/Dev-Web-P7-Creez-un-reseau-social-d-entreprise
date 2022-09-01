@@ -22,7 +22,8 @@
 }
 
 .home__navbar--button {
-    color: black;
+    background-color: #4e5166;
+    color: white;
     text-decoration: none;
     cursor: pointer;
     display: flex;
@@ -118,8 +119,12 @@
     color:#FFD7D7;
 }
 
+.home__quoteSettings--modification {
+    color: #4e5166;
+}
+
 .home__quoteSettings--delete {
-    color: red;
+    color:#4e5166;
     cursor: pointer;
 }
 

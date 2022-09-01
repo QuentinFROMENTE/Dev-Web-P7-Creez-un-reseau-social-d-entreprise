@@ -18,7 +18,7 @@ function Modification (props) {
     }
 
     return ( isAvailable ?
-        <FontAwesomeIcon icon={faPenToSquare} onClick={() => Redirection()} className="home__quoteSettings--buttonUsed" alt="Modification de la quote"/>
+        <FontAwesomeIcon icon={faPenToSquare} onClick={() => Redirection()} className="home__quoteSettings--modification" alt="Modification de la quote"/>
         :
         <FontAwesomeIcon icon={faPenToSquare} className="home__quoteSettings--buttonDisable" alt="Modification de la quote"/>
     )

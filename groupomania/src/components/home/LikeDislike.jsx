@@ -109,7 +109,7 @@ function LikeDislike (props) {
                             user.quotesLikes = Object.assign(user.quotesLikes, resQuotesLikes);
                             setLikeAvailable(false);
                             setDisliked(true);
-                        } else if (i == user.userId && like === 0) {
+                        } else if (like === 0) {
                             setNumberOfDislike(numberOfDislike - 1);
                             user.quotesLikes = Object.assign(user.quotesLikes, resQuotesLikes);
                             setLikeAvailable(true);
@@ -147,9 +147,9 @@ function LikeDislike (props) {
     }
 
     return (
-        <div className='home__quoteSettings--likeDislike'>
-        {likeAvailable && dislikeAvailable ?
         <div>
+        {likeAvailable && dislikeAvailable ?
+        <div className='home__quoteSettings--likeDislike'>
         <FontAwesomeIcon icon={faThumbsUp} onClick={() => Like(user, quote)} className="home__quoteSettings--buttonEnable" alt="Like"/>
         <div>{numberOfLike}</div>
         <FontAwesomeIcon icon={faThumbsDown} onClick={() => Dislike(user, quote)} className="home__quoteSettings--buttonEnable" alt="Dislike"/>
