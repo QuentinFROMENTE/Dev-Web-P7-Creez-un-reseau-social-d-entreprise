@@ -6,7 +6,6 @@ const quoteSchema = mongoose.Schema({
     text: {type: String, require: true},
     imageUrl: {type: String, require: true},
     usersLiked: {type: Map, require: true},
-    responseTo : {type: String, require: true}
 });
 
 module.exports = mongoose.model('quote', quoteSchema);

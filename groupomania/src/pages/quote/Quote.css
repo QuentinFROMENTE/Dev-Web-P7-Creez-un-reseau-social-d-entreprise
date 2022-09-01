@@ -1,0 +1,58 @@
+.quote__localisation {
+    margin-left: 29%;
+    cursor: default;
+}
+.quote__picture--form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.quote__picture--label{
+    margin-bottom: 25px;
+}
+.quote__picture--input {
+    margin-bottom: 30px;
+}
+.quote__picture--delete {
+    color: red;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    left: 130px;
+}
+.quote__picture--img {
+    object-fit: cover;
+    width: 80%;
+    display: block;
+    position: relative;
+    bottom: 60px;
+}
+.quote__validation {
+    margin-left: 32.7%;
+}
+
+@media (min-width: 480px) and (max-width: 900px) {
+    .quote__localisation {
+        margin-left: 39.5%;
+    }
+    .quote__validation {
+        margin-left: 42%;
+    }
+}
+
+@media (min-width: 901px) {
+    .quote__localisation {
+        margin-left: 45%;
+    }
+    .tox {
+        margin-left: 20%;
+    }
+    .quote__picture--img {
+        width: 60%;
+    }
+    .quote__validation {
+        margin-left: 46%;
+    }
+}

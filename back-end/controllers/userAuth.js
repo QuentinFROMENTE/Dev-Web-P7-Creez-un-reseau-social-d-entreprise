@@ -32,6 +32,7 @@ exports.login = (req, res, next) => {
                     res.header('Authorization', 'Bearer '+ jwt.sign({userId: user._id}, 'RANDOM_TOKEN_SECRET', {expiresIn: '24h'}));
                     res.status(200).json({
                         userId: user._id,
+                        administrator: user.administrator,
                         token: jwt.sign(
                             {userId: user._id},
                             'RANDOM_TOKEN_SECRET',

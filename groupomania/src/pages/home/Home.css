@@ -1,0 +1,203 @@
+.home__navbar {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    top: 0px;
+}
+
+.home__navbar--logo {
+    position: relative;
+    right: 2.5%;
+    object-fit: cover;
+    width: 200px;
+    height: 80px;
+    max-height: 40%;
+    display: block;
+    margin: auto;
+}
+
+.home__navbar--positionButton {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home__navbar--button {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.home__thread {
+    margin-top: 160px;
+}
+
+.home__quote {
+    margin: 20px;
+    border: 1px solid #FD2D01;
+    border-radius: 20px;
+}
+
+.home__quoteInfo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.home__quoteInfo--pictureProfile {
+    object-fit:contain;
+    width: 100px;
+    height:100px;
+    margin: 10px;
+}
+
+.home__quoteInfo--author {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+    color: black;
+}
+
+.home__quoteInfo--authorName {
+    color: #FD2D01;
+}
+
+.home__quoteData {
+    margin: auto;
+    padding: auto;
+    padding-bottom: 5px;
+    width: 90%;
+    border: #FFD7D7 1px solid;
+    border-radius: 20px;
+}
+
+.home__quoteData--text {
+    width: 95%;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+}
+
+.home__quoteData--picture {
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+    object-fit: contain;
+    width: 95%;
+}
+
+.home__quoteSettings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 35px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.home__quoteSettings--likeDislike {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 15%;
+    align-items: center;
+}
+
+.home__quoteSettings--buttonEnable {
+    color: #4e5166;
+    cursor: pointer;
+}
+
+.home__quoteSettings--buttonUsed {
+    color: #FD2D01;
+    cursor: pointer;
+}
+
+.home__quoteSettings--buttonDisable {
+    color:#FFD7D7;
+}
+
+.home__quoteSettings--delete {
+    color: red;
+    cursor: pointer;
+}
+
+@media (min-width: 480px) and (max-width: 900px) {
+    .home__navbar {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .home__quote {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .home__quoteInfo {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .home__quoteData {
+        padding-bottom: 1.5%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .home__navbar {
+        width: 20%;
+        height: 100%;
+        margin-left: 2.5%;
+    }
+    .home__navbar--logo {
+        right: 10%;
+    }
+    .home__navbar--positionButton {
+        flex-direction: column;
+    }
+    .home__navbar--button {
+        width: 70%;
+        margin-left: 5%;
+        margin-bottom: 20px;
+    }
+    .home__thread {
+        width: 70%;
+        margin-left: 27%;
+        margin-top: 2%;
+    }
+    .home__quoteData {
+        padding-bottom: 1.75%;
+    }
+    .home__quoteInfo--pictureProfile {
+        margin-left: 5%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .home__navbar {
+        width: 10%;
+        height: 100%;
+        margin-left: 5%;
+    }
+    .home__navbar--logo {
+        right: 10%;
+    }
+    .home__navbar--positionButton {
+        flex-direction: column;
+    }
+    .home__navbar--button {
+        width: 70%;
+        margin-left: 5%;
+        margin-bottom: 20px;
+    }
+    .home__thread {
+        width: 50%;
+        margin-left: 27%;
+        margin-top: 2%;
+    }
+    .home__quoteData {
+        padding-bottom: 1.75%;
+    }
+    .home__quoteInfo--pictureProfile {
+        margin-left: 5%;
+    }
+}

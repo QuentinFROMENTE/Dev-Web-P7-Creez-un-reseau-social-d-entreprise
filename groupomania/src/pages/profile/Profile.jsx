@@ -1,20 +1,8 @@
 import "./Profile.css";
 
 function Profile () {
+    
     const userInfo = JSON.parse(localStorage.getItem("user"));
-    window.addEventListener("DOMContentLoaded", () => {
-        if (!userInfo.newProfile) {
-            const firstName = document.getElementById("firstName");
-            firstName.setAttribute("value", userInfo.firstName);
-            const lastName = document.getElementById("lastName");
-            lastName.setAttribute("value", userInfo.lastName);
-            const job = document.getElementById("job");
-            job.setAttribute("value", userInfo.job);
-            const pictureProfile = document.getElementById("pictureProfile");
-            const oldPicture = pictureProfile.nextElementSibling;
-            oldPicture.setAttribute("src", userInfo.pictureProfile);
-        }
-    })
     
     function profileWithPicture (url, method, body) {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -27,33 +15,43 @@ function Profile () {
             body: JSON.stringify(body)
         })
             .then(() => {
-                const userInfo = {
-                    ...body,
-                    token: user.token,
-                    newProfile: false,
-                    completeName: body.firstName + ' ' + body.lastName,
-                    myQuotes: [],
-                    quotesLikes: new Map()
+                let userInfo = {};
+                if (method === 'POST') {
+                    userInfo = {
+                        ...body,
+                        token: user.token,
+                        newProfile: false,
+                        completeName: body.firstName + ' ' + body.lastName,
+                        myQuotes: [],
+                        quotesLikes: new Map()
+                    }
+                } else {
+                    userInfo = {
+                        ...body,
+                        token: user.token,
+                        newProfile: false,
+                        completeName: body.firstName + ' ' + body.lastName,
+                        myQuotes: user.myQuotes,
+                        quotesLikes: user.quotesLikes
+                    }
                 }
-                localStorage.removeItem("user");
                 localStorage.setItem("user", JSON.stringify(userInfo));
                 document.location.href = "http://localhost:3001/Home";
             })
             .catch(error => console.error(error));
     }
-
+    var pictureProfile = ""
     if (userInfo.pictureProfile) {
-        var pictureProfile = userInfo.pictureProfile;
-    } else {
-        var pictureProfile = "No Picture";
+        pictureProfile = userInfo.pictureProfile;
     }
-    
+
     function saveProfile () {
         const userId = JSON.parse(localStorage.getItem("user")).userId;
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
+        const completeName = firstName + ' ' + lastName;
         const job = document.getElementById("job").value;
-        const body ={userId, firstName, lastName, job, pictureProfile};
+        const body ={userId, firstName, lastName, completeName, job, pictureProfile};
             if (JSON.parse(localStorage.getItem("user")).newProfile) {
                 profileWithPicture("http://localhost:3000/api/user/profile","POST", body);
             } else {
@@ -78,20 +76,20 @@ function Profile () {
             <form method="post">
                 <div className="profile__form">
                     <label for="firstName">Prénom</label>
-                    <input id="firstName" type="text"/>
+                    <input id="firstName" type="text" value={userInfo.firstName}/>
                 </div>
                 <div className="profile__form">
                     <label for="lastName">Nom de famille</label>
-                    <input id="lastName" type="text"/>
+                    <input id="lastName" type="text" value={userInfo.lastName}/>
                 </div>
                 <div className="profile__form">
                     <label for="job">Poste occupé</label>
-                    <input id="job" type="text"/>
+                    <input id="job" type="text" value={userInfo.job}/>
                 </div>
                 <div className="profile__form--picture">
                     <label for="pictureProfile">Image de profile</label>
                     <input id="pictureProfile" type="file" accept="image/jpg, image/jpeg, image/png" onChange={upload}/>
-                    <img src={pictureProfile} className="profile__picture" alt="Photo Profile"/>
+                    <img src={pictureProfile} className="profile__picture" alt="Portrait Profile"/>
                 </div>
                 <span onClick={saveProfile} className="button__validation profile__button">Enregistrer le profile</span>
             </form>

@@ -1,30 +1,37 @@
 .authPage__logo {
     position: relative;
-    right: 2.5%;
+    right: 3%;
     object-fit: cover;
     max-height: 40%;
     display: block;
     margin: auto;
 }
 
+.authPage__button--position {
+    display: flex;
+    justify-content: space-around;
+}
+
+.authPage__button--left {
+    width: 100px;
+    padding-left: 30px;
+}
+
+.authPage__button--right {
+    width: 100px;
+    padding-left: 28px;
+}
+
 .authPage__form {
     margin: auto;
     display: flex;
     width: 80%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
 .authPage__form--bottom {
     margin-bottom: 50px;
-}
-
-.authPage__button--left {
-    margin-left: 10%;
-}
-
-.authPage__button--right {
-    margin-left: 20%;
 }
 
 .authPage__button--validation {
@@ -35,28 +42,48 @@
     .authPage__logo {
         max-height: 500px;
     }
-    .authPage__button--left {
-        margin-left: 24%;
-    }    
+    .authPage__button--position {
+        width: 70%;
+        margin: auto;
+    }
+    .authPage__form {
+        width: 55%;
+    }
     .authPage__button--validation {
         margin-left: 43.5%;
     }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 901px) and (max-width: 1200px) {
     .authPage__logo {
         max-height: 350px;
+        margin-left: 37.5%;
     }
-    .authPage__button--left {
-        margin-left: 35%;
-    }    
-    .authPage__button--right{
-        margin-left: 15%;
+    .authPage__button--position {
+        width: 40%;
+        margin: auto;
+    }
+    .authPage__form {
+        width:35%;
     }
     .authPage__button--validation {
         margin-left: 46%;
     }
+}
+
+@media (min-width:1201px) {
+    .authPage__logo {
+        max-height: 350px;
+        margin-left: 42.3%;
+    }
+    .authPage__button--position {
+        width: 35%;
+        margin: auto;
+    }
     .authPage__form {
-        width: 40%;
+        width:25%;
+    }
+    .authPage__button--validation {
+        margin-left: 47%;
     }
 }

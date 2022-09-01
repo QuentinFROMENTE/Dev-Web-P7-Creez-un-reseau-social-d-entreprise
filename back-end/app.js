@@ -7,7 +7,7 @@ const userAuthRoutes = require('./routes/UserAuth');
 const userInfoRoutes = require('./routes/userInfo');
 const quoteRoutes = require('./routes/Quote');
 
-/*Connexion à la bas de donnée MongoDB*/
+/*Connexion à la base de donnée MongoDB*/
 mongoose.connect(
     'mongodb+srv://Admin:tWUoEOAjShYDnJON@p7fromente.3htmk.mongodb.net/p7fromente',
     {
@@ -28,9 +28,6 @@ app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
-
-app.use('/images/profile', express.static(path.join(__dirname, '../images/profile')));
-app.use('/images/quote', express.static(path.join(__dirname, '../images/quote')));
 
 app.use('/api/auth', userAuthRoutes);
 app.use('/api/user', userInfoRoutes);

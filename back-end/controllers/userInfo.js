@@ -1,23 +1,4 @@
 const Profile = require('../models/userInfo');
-const Quote = require('../models/quote');
-
-exports.getUserThread = (req, res, next) => {
-    Profile.findOne({userId: req.body.userId})
-        .then(profile => {
-            let arrayOfQuote = profile.myQuotes;
-            arrayOfQuote.push.apply(profile.quoteslikes);
-            let entryMongoose = [];
-            for (let idQuote of arrayOfQuote) {
-                if(entryMongoose.indexOf(idQuotes) !== -1) {
-                    entryMongoose.push(mongoose.Types.ObjectId(idQuote));
-                }
-            }
-            Quote.find({_id: {$in: entryMongoose}})
-                .then((thread) => res.status(200).json(thread))
-                .catch((error) => res.status(500).json({error}));
-                })
-        .catch();
-    }
 
 exports.getProfile = (req, res, next) => {
     Profile.findOne({userId: req.params.id})

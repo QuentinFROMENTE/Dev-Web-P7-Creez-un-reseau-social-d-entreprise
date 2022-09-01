@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const quoteCtrl = require('../controllers/quote');
 const auth = require('../middlewares/auth');
-const multer = require('../middlewares/multer-quote');
 
-router.get('/', auth, quoteCtrl.getAll);
-router.post('/', auth, multer, quoteCtrl.createNewQuote);
-router.put('/:id', auth, multer, quoteCtrl.updateOne);
+router.get('/', quoteCtrl.getAll);
+router.post('/', auth, quoteCtrl.createNewQuote);
+router.put('/:id', auth, quoteCtrl.updateOne);
 router.delete('/:id', auth, quoteCtrl.deleteOne);
-router.put('/:id/like', auth, quoteCtrl.likeOne);
+router.put('/like/:id', auth, quoteCtrl.likeOne);
 
 module.exports = router;

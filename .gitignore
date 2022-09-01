@@ -6,3 +6,5 @@ back-end/images/quote
 
 # Dossiers front-end à ignorer
 node_modules
+groupomania/tinymce-react-demo
+groupomania/public/tinymce

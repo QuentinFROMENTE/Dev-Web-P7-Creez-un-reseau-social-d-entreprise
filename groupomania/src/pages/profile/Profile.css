@@ -6,7 +6,7 @@
     margin: auto;
     display: flex;
     width: 80%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
@@ -33,12 +33,15 @@
     .profile__localisation {
         margin-left: 37%;
     }
+    .profile__form{
+        width: 40%;
+    }
     .profile__button {
         margin-left: 38%;
     }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 901px) and (max-width: 1200px) {
     .profile__localisation {
         margin-left: 43%;
     }
@@ -50,5 +53,20 @@
     }
     .profile__button {
         margin-left: 43.8%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .profile__localisation {
+        margin-left: 45%;
+    }
+    .profile__form {
+        width: 25%;
+    }
+    .profile__picture {
+        width: 25%;
+    }
+    .profile__button {
+        margin-left: 45.5%;
     }
 }
