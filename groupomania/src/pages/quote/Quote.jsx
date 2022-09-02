@@ -89,7 +89,10 @@ function Quote () {
   useEffect(()=>{
     if (localStorage.getItem("quote")) {
       setIsNewQuote(false);
-      setIsPicture(true);
+      const quoteReader = localStorage.getItem("user");
+      if (quoteReader.imageUrl) {
+        setIsPicture(true);
+      }
     };
   }, []);
 
