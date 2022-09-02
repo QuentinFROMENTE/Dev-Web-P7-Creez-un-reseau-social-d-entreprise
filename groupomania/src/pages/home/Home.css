@@ -121,6 +121,7 @@
 
 .home__quoteSettings--modification {
     color: #4e5166;
+    cursor: pointer;
 }
 
 .home__quoteSettings--delete {
