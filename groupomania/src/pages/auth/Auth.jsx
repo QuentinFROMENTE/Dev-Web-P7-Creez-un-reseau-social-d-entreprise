@@ -74,7 +74,7 @@ function AuthPage () {
             fetch("http://localhost:3000/api/auth/signup", {
                 method: "POST",
                 headers: {
-                    "Content-Type":"application/json",
+                    "Content-Type":"application/json"
                 },
                 body : JSON.stringify(body),
                 })
@@ -82,7 +82,7 @@ function AuthPage () {
                     if (res.ok) {
                         fetch("http://localhost:3000/api/auth/login", {
                             method: "POST",
-                            headers: {"Content-Type": "application/json", 'Access-Control-Allow-Origin': '*'},
+                            headers: {"Content-Type": "application/json"},
                             body: JSON.stringify(body)
                         })
                         .then((res) => {
