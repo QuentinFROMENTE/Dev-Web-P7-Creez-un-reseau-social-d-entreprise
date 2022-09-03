@@ -40,9 +40,12 @@
     .quote__validation {
         margin-left: 42%;
     }
+    .quote__picture--delete {
+        left: 280px;
+    }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 901px) and (max-width: 1200px) {
     .quote__localisation {
         margin-left: 45%;
     }
@@ -54,5 +57,26 @@
     }
     .quote__validation {
         margin-left: 46%;
+    }
+    .quote__picture--delete {
+        left: 325px;
+    }
+}
+
+@media (min-width:1201px) {
+    .quote__localisation {
+        margin-left: 45%;
+    }
+    .tox {
+        margin-left: 20%;
+    }
+    .quote__picture--img {
+        width: 60%;
+    }
+    .quote__validation {
+        margin-left: 46%;
+    }
+    .quote__picture--delete {
+        left: 500px;
     }
 }
