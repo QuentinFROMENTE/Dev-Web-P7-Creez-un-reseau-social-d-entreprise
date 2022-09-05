@@ -37,7 +37,7 @@ function Home () {
                 <div className='home__navbar--positionButton'>
                     <Link to="/" onClick={() => {localStorage.removeItem("user")}} className="button__default home__navbar--button">Déconnexion</Link>
                     <Link to="/Profile" className='button__default home__navbar--button'>Profile</Link>
-                    <Link to="/Quote" className='button__default home__navbar--button'>Nouveau poste</Link>
+                    <Link to="/Quote" className='button__default home__navbar--button home__navbar--newQuote'>Nouveau poste</Link>
                 </div>
             </nav>
             <main id="thread" className='home__thread'>

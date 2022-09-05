@@ -2,6 +2,10 @@
     margin-left: 29%;
     cursor: default;
 }
+.isEmpty {
+    margin-left: 25%;
+    color: red;
+}
 .quote__picture--form {
     display: flex;
     flex-direction: column;
@@ -37,6 +41,10 @@
     .quote__localisation {
         margin-left: 39.5%;
     }
+    .isEmpty {
+        margin-left: 35.5%;
+        color: red;
+    }
     .quote__validation {
         margin-left: 42%;
     }
@@ -48,6 +56,10 @@
 @media (min-width: 901px) and (max-width: 1200px) {
     .quote__localisation {
         margin-left: 45%;
+    }
+    .isEmpty {
+        margin-left: 41%;
+        color: red;
     }
     .tox {
         margin-left: 20%;
@@ -66,6 +78,10 @@
 @media (min-width:1201px) {
     .quote__localisation {
         margin-left: 45%;
+    }
+    .isEmpty {
+        margin-left: 41%;
+        color: red;
     }
     .tox {
         margin-left: 20%;

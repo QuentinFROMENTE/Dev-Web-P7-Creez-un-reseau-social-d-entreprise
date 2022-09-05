@@ -1,7 +1,9 @@
 import "./Profile.css";
+import {useState} from 'react';
 
 function Profile () {
-    
+
+    const [errorMsg, setErrorMsg] = useState("");    
     const userInfo = JSON.parse(localStorage.getItem("user"));
     
     function profileWithPicture (url, method, body) {
@@ -44,7 +46,6 @@ function Profile () {
     if (userInfo.pictureProfile) {
         pictureProfile = userInfo.pictureProfile;
     }
-
     function saveProfile () {
         const userId = JSON.parse(localStorage.getItem("user")).userId;
         const firstName = document.getElementById("firstName").value;
@@ -52,11 +53,17 @@ function Profile () {
         const completeName = firstName + ' ' + lastName;
         const job = document.getElementById("job").value;
         const body ={userId, firstName, lastName, completeName, job, pictureProfile};
+        if (body.firstName !== "" && body.lastName !== "" && body.job !== "" && body.pictureProfile !== "")
+            {
             if (JSON.parse(localStorage.getItem("user")).newProfile) {
                 profileWithPicture("http://localhost:3000/api/user/profile","POST", body);
             } else {
                 profileWithPicture("http://localhost:3000/api/user/update","PUT", body);
             }
+        } else {
+            setErrorMsg("Tous les champs sont obligatoire");
+        }
+
         }
 
     function upload () {
@@ -73,6 +80,7 @@ function Profile () {
         
     return (<div>
             <p className="button__default--active profile__localisation">Gestionnaire de profile</p>
+            <p className="errorMsg">{errorMsg}</p>
             <form method="post">
                 <div className="profile__form">
                     <label for="firstName">Prénom</label>

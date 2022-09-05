@@ -3,7 +3,7 @@
 # Insctruction pour la première utilisation :
 # Installation du serveur back-end :
 - Ouvrer le terminal et naviguer jusqu'au dossier back-end avec "cd ./back-end/",
-- Installer les pacquets nécessaires pour le fonctionnenement du serveur : express par le commande "npm install express",
+- Installer les pacquets nécessaires pour le fonctionnenement du serveur par la commande "npm install express mongoose mongoose-unique-validator bcrypt jsonwebtoken",
 - Lancer le serveur avec la commande "node ./serveur.js"
 
 # Installation du front-end :

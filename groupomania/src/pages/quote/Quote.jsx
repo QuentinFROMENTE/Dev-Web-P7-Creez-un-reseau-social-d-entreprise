@@ -8,6 +8,7 @@ function Quote () {
 
   const [isPicture, setIsPicture] = useState(false);
   const [isNewQuote, setIsNewQuote] = useState(true);
+  const [isEmpty, setIsEmpty] = useState("");
 
   var pictureQuote = "";
 
@@ -20,55 +21,61 @@ function Quote () {
   }
 
   const Log = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const pictureString = pictureStringRef.current.getAttribute("src");
-    if(isNewQuote) {
-      const body = {
-        userId: user.userId,
-        date: new Date().toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) +' '+ new Date().toLocaleTimeString('fr-FR'),
-        text: editorRef.current.getContent(),
-        imageUrl: pictureString,
-        usersLiked: new Map()
-      }
-      fetch("http://localhost:3000/api/quote/", {
-        method: 'POST',
-        headers: {
-          "Content-Type":"application/json",
-          "Authorization": `${user.token}`
-      },
-      body: JSON.stringify(body)
-      })
-        .then(res => res.json())
-        .then(quote => {
-          user.myQuotes.push(quote.quoteId);
-          localStorage.setItem("user", JSON.stringify(user));
-          document.location.href = "http://localhost:3001/Home";
-        })
-        .catch(error => console.error(error));
+    if(editorRef.current.getContent() === "") {
+      console.log(editorRef.current.getContent());
+      setIsEmpty("Champ de création de quote obligatoirement utilisé");
     } else {
-      const quote = JSON.parse(localStorage.getItem("quote"));
-      const body = {
-        userId: user.userId,
-        date: quote.date,
-        text: editorRef.current.getContent(),
-        imageUrl: pictureString,
-        usersLiked: quote.usersLiked
-      }
-      fetch(`http://localhost:3000/api/quote/${JSON.parse(localStorage.getItem("quote"))._id}`, {
-        method: 'PUT',
-        headers: {
-          "Content-Type":"application/json",
-          "Authorization": `${user.token}`
-      },
-      body: JSON.stringify(body)
-      })
-        .then(() => {
-          localStorage.removeItem("quote");
-          localStorage.setItem("user", JSON.stringify(user));
-          document.location.href = "http://localhost:3001/Home";
+      const user = JSON.parse(localStorage.getItem("user"));
+      const pictureString = pictureStringRef.current.getAttribute("src");
+      if(isNewQuote) {
+        const body = {
+          userId: user.userId,
+          date: new Date().toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) +' '+ new Date().toLocaleTimeString('fr-FR'),
+          text: editorRef.current.getContent(),
+          imageUrl: pictureString,
+          usersLiked: new Map()
+        }
+        fetch("http://localhost:3000/api/quote/", {
+          method: 'POST',
+          headers: {
+            "Content-Type":"application/json",
+            "Authorization": `${user.token}`
+        },
+        body: JSON.stringify(body)
         })
-        .catch(error => console.error(error));
+          .then(res => res.json())
+          .then(quote => {
+            user.myQuotes.push(quote.quoteId);
+            localStorage.setItem("user", JSON.stringify(user));
+            document.location.href = "http://localhost:3001/Home";
+          })
+          .catch(error => console.error(error));
+      } else {
+        const quote = JSON.parse(localStorage.getItem("quote"));
+        const body = {
+          userId: user.userId,
+          date: quote.date,
+          text: editorRef.current.getContent(),
+          imageUrl: pictureString,
+          usersLiked: quote.usersLiked
+        }
+        fetch(`http://localhost:3000/api/quote/${JSON.parse(localStorage.getItem("quote"))._id}`, {
+          method: 'PUT',
+          headers: {
+            "Content-Type":"application/json",
+            "Authorization": `${user.token}`
+        },
+        body: JSON.stringify(body)
+        })
+          .then(() => {
+            localStorage.removeItem("quote");
+            localStorage.setItem("user", JSON.stringify(user));
+            document.location.href = "http://localhost:3001/Home";
+          })
+          .catch(error => console.error(error));
+      }
     }
+    
   };
 
   function Upload () {
@@ -99,6 +106,7 @@ function Quote () {
   return  (
   <>
     <p className="button__default--active quote__localisation">Créateur de Quote</p>
+    <p className="isEmpty">{isEmpty}</p>
     {isNewQuote ?
       <BundledEditor
       tinymceScriptSrc={process.env.PUBLIC_URL + '/tinymce/tinymce.min.js'}

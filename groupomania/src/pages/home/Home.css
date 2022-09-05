@@ -30,6 +30,10 @@
     justify-content: center;
 }
 
+.home__navbar--newQuote {
+    background-color: #FD2D01;
+}
+
 .home__thread {
     margin-top: 160px;
 }
