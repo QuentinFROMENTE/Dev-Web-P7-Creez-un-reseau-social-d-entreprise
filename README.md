@@ -1,4 +1,6 @@
 # Projet 7 Openclassrooms : Créez un réseau social d'entreprise
+- État du projet pour le passage de la soutenance.
+- L'intégralité du projet a été développé par mes soins.
 
 # Insctruction pour la première utilisation :
 # Installation du serveur back-end :
